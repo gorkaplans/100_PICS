@@ -4,6 +4,7 @@ import Header from '../header';
 import Footer from '../footer';
 import './MainLayout.scss';
 
+
 const MainLayout = ({ children }) => {
     return (
         <>

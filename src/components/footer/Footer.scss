@@ -3,11 +3,12 @@ footer{
     justify-content: center;
     min-height: 30px;
     width: 100%;
-    margin-top: 500px;
+    margin-top: auto;
+    position:fixed;
+    bottom:0px;
 
     h3{
         display: inline-block;
-        color: #a7a9ad;
 
     }
 
