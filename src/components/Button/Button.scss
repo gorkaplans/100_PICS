@@ -1,1 +1,19 @@
-@import '../../styles.scss';
+@import '../../styles.scss';  
+
+.normal-button{
+    width: 80px;
+    height: 30px;
+    border: solid 1px $second;
+    background: none;
+    box-shadow:0 1px 1px $second ;
+    transition-duration: .2s;
+}
+
+
+
+.normal-button:hover,
+.normal-button:focus {
+  background-color: $second;
+  color: $principal;
+  outline: none;
+}

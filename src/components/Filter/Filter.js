@@ -1,4 +1,5 @@
 import React, { useState } from 'react'; 
+import Button from '../Button'
 
 
 import'./Filter.scss'
@@ -44,9 +45,9 @@ const Filter = ({onSearch}) => {
            <section className="dificult">
                 <p className="filter-section regular"> Dificultat</p>
                 <div className="action-container buttons">
-                    <button onClick={handelChangeFormData} name='dificult' value='easy'>Facil</button>
-                    <button onClick={handelChangeFormData} name='dificult' value='medium'>Moderat</button>
-                    <button onClick={handelChangeFormData} name='dificult' value='hard'>Difícil</button>
+                    <Button onClick={handelChangeFormData} name='dificult' value='easy'>Facil</Button>
+                    <Button onClick={handelChangeFormData} name='dificult' value='medium'>Moderat</Button>
+                    <Button onClick={handelChangeFormData} name='dificult' value='hard'>Difícil</Button>
                 </div>
            </section>
            <section className=" filter-section time">
