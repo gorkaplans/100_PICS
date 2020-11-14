@@ -1,18 +1,20 @@
 import React from 'react'; 
+import { Link } from 'react-router-dom';
 
 import'./Header.scss'
 
 const Header = () => {
     return (
     <div className="head">
-        <h3 className="regular"> 100_pics</h3>
-        <div className="menu light">
-            <a className="apartat">Inici</a>
-            <a className="apartat">Sobre això?</a>
-            <a className="apartat">Llistat</a>
-            <a className="apartat">Contacte</a>
-            <a className="apartat">Login</a>
-            
+        <Link to='/' className="logo">
+            <h3 className="regular"> 100_pics</h3>
+        </Link>
+    <div className="menu light">
+            <Link to='/' className="apartat">Inici</Link>
+            <Link to='/about' className="apartat">Sobre això?</Link>
+            <Link to='/list' className="apartat">Llistat</Link>
+            <Link to='/contact' className="apartat">Contacte</Link>
+            <Link to='/login' className="apartat">LogIn</Link>
         </div>
     </div>
     )

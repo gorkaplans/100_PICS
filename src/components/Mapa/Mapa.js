@@ -37,4 +37,7 @@ const Mapa = () => {
     )
 }   
 
+
+///colocar id de firebase com id del poigono en el mapa
+
 export default Mapa;
