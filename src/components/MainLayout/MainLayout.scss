@@ -57,4 +57,11 @@ body{
 	padding-right: 4em;
 	padding-left: 4em;
 	padding-bottom: 2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+main{
+	width: 84vw;
 }

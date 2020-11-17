@@ -3,12 +3,14 @@ import Home from './pages/Home';
 import About from './pages/About'
 import List from './pages/List';
 import Contact from './pages/Contact';
-import Login from './pages/Login';
+import Userauth from './pages/Userauth';
+import Loginpage from './pages/Loginpage';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+
 
 
 function App() {
@@ -28,8 +30,11 @@ function App() {
           <Route path="/contact" exact>
               <Contact />
           </Route>
+          <Route path="/userauth" exact>
+              <Userauth />
+          </Route>
           <Route path="/login" exact>
-              <Login />
+              <Loginpage />
           </Route>
           
         </Switch>  

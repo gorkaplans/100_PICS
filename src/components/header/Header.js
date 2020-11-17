@@ -14,7 +14,7 @@ const Header = () => {
             <Link to='/about' className="apartat">Sobre això?</Link>
             <Link to='/list' className="apartat">Llistat</Link>
             <Link to='/contact' className="apartat">Contacte</Link>
-            <Link to='/login' className="apartat">LogIn</Link>
+            <Link to='/userauth' className="apartat">SignUp</Link>
         </div>
     </div>
     )
