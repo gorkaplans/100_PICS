@@ -1,12 +1,14 @@
-import { SET_USER_PROFILE } from '../actions/userActions';
+import { SET_USER_PROFILE, SET_USER_LOCATION } from '../actions/userActions';
 
 const defaultProfile = null;
 
 function userReducer(state = defaultProfile, action) {
   switch(action.type) {
     case SET_USER_PROFILE: {
-      console.log('ddddd', action.payload);
       return action.payload;
+    }
+    case SET_USER_LOCATION: {
+      return {...state, coords: action.payload};
     }
     default: {
       return state;

@@ -49,25 +49,6 @@ export async function getObjectById(collection, id) {
   }
 }
 
-export async function listObjects(collection, filter) {
-  try {
-    let db = getCollection(collection);
-    if (filter) {
-      db = db.where(filter.field, filter.condition, filter.value);
-    }
-    const querySnapshot = await db.get();
-    const data = [];
-    querySnapshot.forEach((doc) => {
-      data.push(parseDocument(doc));
-    })
-    return data;
-    
-  } catch (error) {
-    console.log("listObjects -> error", error)
-    return [];
-  }
-}
-
 export async function updateObjectById(collection, id, updateFields) {
   try {
     const db = getCollection(collection);
@@ -106,3 +87,65 @@ export async function removeObjectById(collection, id) {
   });
   return unsubscribe;
 } */
+
+export async function listObjects(collection, filter) {
+  try {
+    let db = getCollection(collection);
+    if (filter) {
+      db = db.where(filter.field, filter.condition, filter.value);
+    
+    }
+    const querySnapshot = await db.get();
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push(parseDocument(doc));
+    })
+    return data;
+    
+  } catch (error) {
+    console.log("listObjects -> error", error)
+    return [];
+  }
+}
+
+export async function listMountainsByFilter(collection, formData) {
+  try {
+    let db = getCollection(collection);
+    const { dificult, time, altitude, checks } = formData
+
+    db = db.where('difficulty', '==', dificult).where('time', '==', time).where('altitude', '<=', altitude);
+
+    if(checks.family){
+      db = db.where('checks.family', '==', true )
+    }
+    if(checks.dog){
+      db = db.where('checks.dog', '==', true )
+    }
+    if(checks.eat){
+      db = db.where('checks.eat', '==', true )
+    }
+    if(checks.parking){
+      db = db.where('checks.parking', '==', true )
+    }
+    if(checks.refuge){
+      db = db.where('checks.refuge', '==', true )
+    }
+    if(checks.water){
+      db = db.where('checks.water', '==', true )
+    }
+  
+    const querySnapshot = await db.get();
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push(parseDocument(doc));
+    })
+    return data;
+
+  } catch (error) {
+    console.log("listMountainsByFilter -> error", error)
+    return [];
+  }
+}
+
+
+/// distancia 

@@ -3,8 +3,9 @@ import Button from '../Button'
 
 
 import'./Filter.scss'
+import { listMountainsByFilter } from '../../services/data';
 
-const Filter = ({onSearch}) => {
+const Filter = () => {
 
     const[formData,setFormData]=useState({
         dificult:'easy',
@@ -40,6 +41,13 @@ const Filter = ({onSearch}) => {
             [name]:checked,
         }})
     }
+
+    const handleSummbitFilterMountains = async (e) => {
+            e.preventDefault();
+            const mountaintsHome = await listMountainsByFilter('mountains',formData)
+            console.log(mountaintsHome)
+    }
+   
     console.log(formData)
 
     return (
@@ -99,9 +107,11 @@ const Filter = ({onSearch}) => {
                         <label className="light check-label"><input type="checkbox" id="parking" name="parking" checked={formData.checks['parking']} onChange={handelCheckFormData} />Parking Habilitat</label><br />
                     </span>
                 </div>
-
-
-               
+            </section>
+            <section className="dificult">
+                <div className="action-container buttons">
+                    <Button onClick={handleSummbitFilterMountains}>Buscar</Button>
+                </div>
            </section>
        </div>
     )

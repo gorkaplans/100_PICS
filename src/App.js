@@ -13,20 +13,23 @@ import {
 } from "react-router-dom";
 
 import { registerAuthStateChangeHandler, getUserProfileById } from './logic/user';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUserProfile } from './redux/actions/userActions';
+import getUserLocation from './logic/geolocationUser';
 
 
 function App() {
   const dispatch = useDispatch();
+  const[location,setLocation]=useState([])
 
   useEffect(() => {
     registerAuthStateChangeHandler(async (user) => {
-    console.log("App -> user", user)
     if(user){
       const useProfile = await getUserProfileById(user.uid)
       dispatch(setUserProfile(useProfile));
+      getUserLocation(setLocation)
+      /// dispatch 
     } else{
       dispatch(setUserProfile(null));
     }
@@ -34,6 +37,7 @@ function App() {
     })
   },[])
 
+  console.log(location)
   return (
     <div className="App">
       <Router>
