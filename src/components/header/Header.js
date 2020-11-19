@@ -1,23 +1,35 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import'./Header.scss'
 
-const Header = () => {
+const Header = (user) => {
     return (
     <div className="head">
         <Link to='/' className="logo">
             <h3 className="regular"> 100_pics</h3>
         </Link>
-    <div className="menu light">
+        <div className="menu light">
             <Link to='/' className="apartat">Inici</Link>
             <Link to='/about' className="apartat">Sobre això?</Link>
             <Link to='/list' className="apartat">Llistat</Link>
             <Link to='/contact' className="apartat">Contacte</Link>
             <Link to='/userauth' className="apartat">SignUp</Link>
+            {/* {{user}
+            ? <Link to='/user' className="apartat">Perfil</Link>  
+            :<Link to='/userauth' className="apartat">SignUp</Link> } */}
         </div>
     </div>
-    )
-}   
+    
+    ) } 
 
-export default Header;
+const mapStateToProp = (state) => {
+    return {
+      user: state.user
+    }
+  }
+  
+
+  
+  export default connect(mapStateToProp)(Header);

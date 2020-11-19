@@ -1,6 +1,8 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom';
 
+import { useHistory } from "react-router-dom";
+
 
 import Button from '../Button';
 
@@ -16,7 +18,7 @@ const SignUp = () => {
     const [passwordError, setPasswordError] = useState(false)
     const [signupError, setSignupError] = useState('');
 
-
+    let history = useHistory();
 
     const handelSumbit = async (e) => {
         e.preventDefault();
@@ -35,7 +37,7 @@ const SignUp = () => {
         if(!error){
           const { success, error } = await userSignup(mail, password, name);
         if (success) {
-          //onSuccess()
+          history.push('/user')
         } else {
           setSignupError(error)
         } }

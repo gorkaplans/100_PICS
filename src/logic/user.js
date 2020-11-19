@@ -21,6 +21,7 @@ export function getUserProfileById(uid) {
 }
 
 export function userLogout() {
+  console.log("logout")
   logout();
 }
 
