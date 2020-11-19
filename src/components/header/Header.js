@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import'./Header.scss'
 
-const Header = (user) => {
+const Header = ({user}) => {
+    console.log('user', user);
     return (
     <div className="head">
         <Link to='/' className="logo">
@@ -15,10 +16,9 @@ const Header = (user) => {
             <Link to='/about' className="apartat">Sobre això?</Link>
             <Link to='/list' className="apartat">Llistat</Link>
             <Link to='/contact' className="apartat">Contacte</Link>
-            <Link to='/userauth' className="apartat">SignUp</Link>
-            {/* {{user}
+            { user
             ? <Link to='/user' className="apartat">Perfil</Link>  
-            :<Link to='/userauth' className="apartat">SignUp</Link> } */}
+            :<Link to='/userauth' className="apartat">SignUp</Link>}
         </div>
     </div>
     
