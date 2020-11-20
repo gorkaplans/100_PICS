@@ -15,27 +15,32 @@ import {
 import { registerAuthStateChangeHandler, getUserProfileById } from './logic/user';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setUserProfile } from './redux/actions/userActions';
+import { setUserProfile, setUserLocation } from './redux/actions/userActions';
 import getUserLocation from './logic/geolocationUser';
 
 
 function App() {
   const dispatch = useDispatch();
   const[location,setLocation]=useState([])
+ 
+  
 
   useEffect(() => {
     registerAuthStateChangeHandler(async (user) => {
     if(user){
       const useProfile = await getUserProfileById(user.uid)
       dispatch(setUserProfile(useProfile));
-      getUserLocation(setLocation)
-      /// dispatch 
-    } else{
+      } else{
       dispatch(setUserProfile(null));
     }
-
+    getUserLocation(setLocation)
     })
-  },[])
+  },[]) 
+
+  useEffect(() => {
+    
+   dispatch(setUserLocation(location))
+  },[location])
 
   console.log(location)
   return (

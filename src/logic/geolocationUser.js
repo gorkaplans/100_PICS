@@ -1,8 +1,4 @@
 
-
-
-
-
 function getUserLocation(callback) {
 
     function geo_success(position) {

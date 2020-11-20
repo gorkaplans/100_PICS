@@ -4,20 +4,21 @@ import Butoon from '../components/Button';
 import { userLogout } from '../logic/user';
 import { useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { setUserProfile, setUserLocation } from '../redux/actions/userActions';
 
 
 
 const Profile = () => {
   let history = useHistory();
-  debugger
   const name = useSelector(state => state.user !== null ? state.user.name : " nom ")
-  
+  const dispatch = useDispatch();
 
   const handelSummbitLogout = (e) => {
       e.preventDefault();
       userLogout(); 
       history.push('./')
-
+      dispatch(setUserProfile(null));
   }
 
   return (

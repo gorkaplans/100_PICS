@@ -1,11 +1,12 @@
 import React, { useState } from 'react'; 
 import Button from '../Button'
+import { useSelector } from 'react-redux'
 
 
 import'./Filter.scss'
 import { listMountainsByFilter } from '../../services/data';
 
-const Filter = () => {
+const Filter = ({ onSearch }) => {
 
     const[formData,setFormData]=useState({
         dificult:'easy',
@@ -21,6 +22,8 @@ const Filter = () => {
             parking:false,
         }
     })
+    const UserLatitude = useSelector(state => state.user.coords)
+    /// setejar unes coords per fecte a l'usuari nomes al inicialitzar 
 
     const handelChangeFormData = (e) => {
 
@@ -42,10 +45,15 @@ const Filter = () => {
         }})
     }
 
+   
+    
+
     const handleSummbitFilterMountains = async (e) => {
             e.preventDefault();
             const mountaintsHome = await listMountainsByFilter('mountains',formData)
-            console.log(mountaintsHome)
+            onSearch(mountaintsHome);
+            /// cridar la funcio de list mountains amb les coords del user 
+            console.log("====>",UserLatitude[0])
     }
    
     console.log(formData)
