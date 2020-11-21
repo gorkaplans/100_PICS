@@ -1,15 +1,20 @@
-footer{
+@import '../../styles.scss';
+
+.footer{
     display: flex;
-    justify-content: center;
-    min-height: 30px;
+    justify-content: space-between;
+    align-content: center;
+    min-height: 26px;
     width: 100%;
+    background-color: $principal;
     margin-top: auto;
-    position:fixed;
-    bottom:0px;
 
-    h3{
-        display: inline-block;
+    .a-footer{
+        font-size: 10pt;
+    }
 
+    .a-footer2{
+        font-size: 9pt;
     }
 
 }

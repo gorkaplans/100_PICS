@@ -1,9 +1,12 @@
 import React, { useState } from 'react'; 
+import Button from '../Button'
+import { useSelector } from 'react-redux'
 
 
 import'./Filter.scss'
+import { listMountainsByFilter } from '../../services/data';
 
-const Filter = ({onSearch}) => {
+const Filter = ({ onSearch }) => {
 
     const[formData,setFormData]=useState({
         dificult:'easy',
@@ -19,8 +22,13 @@ const Filter = ({onSearch}) => {
             parking:false,
         }
     })
+    /// agafa les coords del user o sino posa les de bcn per defecte
+    const UserLocation = useSelector(state => state.user !== null ? state.user.coords : [41.38879,2.15899])
 
+    
     const handelChangeFormData = (e) => {
+
+        console.log(e.target)
         
         const {name, value} = e.target
 
@@ -37,6 +45,17 @@ const Filter = ({onSearch}) => {
             [name]:checked,
         }})
     }
+
+   
+    
+
+    const handleSummbitFilterMountains = async (e) => {
+            e.preventDefault();
+            const mountaintsHome = await listMountainsByFilter('mountains',formData,UserLocation)
+            onSearch(mountaintsHome);
+            /// cridar la funcio de list mountains amb les coords del user 
+    }
+   
     console.log(formData)
 
     return (
@@ -44,9 +63,9 @@ const Filter = ({onSearch}) => {
            <section className="dificult">
                 <p className="filter-section regular"> Dificultat</p>
                 <div className="action-container buttons">
-                    <button onClick={handelChangeFormData} name='dificult' value='easy'>Facil</button>
-                    <button onClick={handelChangeFormData} name='dificult' value='medium'>Moderat</button>
-                    <button onClick={handelChangeFormData} name='dificult' value='hard'>Difícil</button>
+                    <Button onClick={handelChangeFormData} name='dificult' value='easy'>Facil</Button>
+                    <Button onClick={handelChangeFormData} name='dificult' value='medium'>Moderat</Button>
+                    <Button onClick={handelChangeFormData} name='dificult' value='hard'>Difícil</Button>
                 </div>
            </section>
            <section className=" filter-section time">
@@ -75,10 +94,10 @@ const Filter = ({onSearch}) => {
                 <p className="regular">Altitud</p>
                 <div className="action-container range-action light">
                     <div className="range-slider">
-                    <input onChange={handelChangeFormData} name='altitude' value={formData.altitude} className="rs-range" type="range" min="500" max="3000" />
+                    <input onChange={handelChangeFormData} name='altitude' value={formData.altitude} className="rs-range" type="range" min="500" max="3150" />
                     </div>
                     <div className="box-minmax">
-                        <span>500m</span><span>3000m</span>
+                        <span>500m</span><span>3150m</span>
                     </div> 
                 </div>
            </section>
@@ -96,9 +115,11 @@ const Filter = ({onSearch}) => {
                         <label className="light check-label"><input type="checkbox" id="parking" name="parking" checked={formData.checks['parking']} onChange={handelCheckFormData} />Parking Habilitat</label><br />
                     </span>
                 </div>
-
-
-               
+            </section>
+            <section className="dificult">
+                <div className="action-container buttons">
+                    <Button onClick={handleSummbitFilterMountains}>Buscar</Button>
+                </div>
            </section>
        </div>
     )
