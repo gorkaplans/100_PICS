@@ -22,9 +22,10 @@ const Filter = ({ onSearch }) => {
             parking:false,
         }
     })
-    const UserLatitude = useSelector(state => state.user.coords)
-    /// setejar unes coords per fecte a l'usuari nomes al inicialitzar 
+    /// agafa les coords del user o sino posa les de bcn per defecte
+    const UserLocation = useSelector(state => state.user !== null ? state.user.coords : [41.38879,2.15899])
 
+    
     const handelChangeFormData = (e) => {
 
         console.log(e.target)
@@ -50,10 +51,9 @@ const Filter = ({ onSearch }) => {
 
     const handleSummbitFilterMountains = async (e) => {
             e.preventDefault();
-            const mountaintsHome = await listMountainsByFilter('mountains',formData)
+            const mountaintsHome = await listMountainsByFilter('mountains',formData,UserLocation)
             onSearch(mountaintsHome);
             /// cridar la funcio de list mountains amb les coords del user 
-            console.log("====>",UserLatitude[0])
     }
    
     console.log(formData)
@@ -94,10 +94,10 @@ const Filter = ({ onSearch }) => {
                 <p className="regular">Altitud</p>
                 <div className="action-container range-action light">
                     <div className="range-slider">
-                    <input onChange={handelChangeFormData} name='altitude' value={formData.altitude} className="rs-range" type="range" min="500" max="3000" />
+                    <input onChange={handelChangeFormData} name='altitude' value={formData.altitude} className="rs-range" type="range" min="500" max="3150" />
                     </div>
                     <div className="box-minmax">
-                        <span>500m</span><span>3000m</span>
+                        <span>500m</span><span>3150m</span>
                     </div> 
                 </div>
            </section>

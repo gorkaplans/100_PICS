@@ -1,6 +1,6 @@
 import { SET_USER_PROFILE, SET_USER_LOCATION } from '../actions/userActions';
 
-const defaultProfile = null;
+const defaultProfile = null
 
 function userReducer(state = defaultProfile, action) {
   switch(action.type) {

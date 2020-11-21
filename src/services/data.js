@@ -74,21 +74,6 @@ export async function removeObjectById(collection, id) {
   }
 }
 
-/* export function setupCollectionObserver(collection, filter, onChange) {
-  let db = getCollection(collection);
-  if (filter) {
-    db = db.where(filter.field, filter.condition, filter.value);
-  }
-  const unsubscribe = db.onSnapshot((querySnapshot) => {
-    const data = [];
-    querySnapshot.forEach((doc) => {
-      data.push(parseDocument(doc));
-    });
-    onChange(data);
-  });
-  return unsubscribe;
-} */
-
 export async function listObjects(collection, filter) {
   try {
     let db = getCollection(collection);
@@ -112,10 +97,10 @@ export async function listObjects(collection, filter) {
 
 /// ==> Filter all mountaints on firebae by home filter params
 
-export async function listMountainsByFilter(collection, formData) {
+export async function listMountainsByFilter(collection, formData, userLocation) {
   try {
     let db = getCollection(collection);
-    const { dificult, time, altitude, checks } = formData
+    const { dificult, time, altitude, checks, distance } = formData
 
     const checksTrue = Object.keys(checks).filter(name => checks[name])
 
@@ -134,15 +119,15 @@ export async function listMountainsByFilter(collection, formData) {
       data.push(parseDocument(doc));
     })
 
+    ///filtra con los checks
     const dataFilter = data.filter(d => checksTrue.every(ct => d.checks.includes(ct)));
+    console.log("listMountainsByFilter -> dataFilter", dataFilter)
 
-    /// filtar distancia 
-   
-
-    ///dataFilter.forEach(mountain => getDistanceBetweenUserCoordsAndMountainCoors(m.coords[0],m.coords[1],))
-
-    ///
-    return dataFilter;
+    
+    ///filtra la distancia
+    const dataFilterdistance = dataFilter.filter(m => getDistanceBetweenUserCoordsAndMountainCoors(m.coords.w_,m.coords.T_,userLocation[0],userLocation[1]) <= Number(distance))
+    
+    return dataFilterdistance;
 
   } catch (error) {
     console.log("listMountainsByFilter -> error", error)
@@ -151,18 +136,20 @@ export async function listMountainsByFilter(collection, formData) {
 }
 
 
-/// 
-
+ 
+/// Funció que calcula la distancia entre geoPoints
 function getDistanceBetweenUserCoordsAndMountainCoors(lat1,lon1,lat2,lon2){
   function rad(x){return x*Math.PI/180;}
   var R = 6378.137; //Radio de la tierra en km
- var dLat = rad( lat2 - lat1 );
- var dLong = rad( lon2 - lon1 );
-var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLong/2) * Math.sin(dLong/2);
- var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
- var d = R * c;
-return d.toFixed(3); //Retorna tres decimales
+  var dLat = rad( lat2 - lat1 );
+  var dLong = rad( lon2 - lon1 );
+  var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var d = R * c;
+  return d.toFixed(0);
 }
+
+
 
 
 
