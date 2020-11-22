@@ -1,4 +1,5 @@
 import React, { useState } from 'react'; 
+import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 import './Mapa.scss'   
 
@@ -64,7 +65,7 @@ const Mapa = ({ mountains }) => {
               <hr className="fine-line"></hr>
               <p className="light desc">{popUpMountain.desc}</p>
               <div className="pop-buttons">
-              <Button >Veure +</Button>
+              <Button ><Link to={`/mountain/${popUpMountain.name}`} id="btn">Veure +</Link></Button>
               <Button onClick={handleClosePopUp}>Tanca</Button>
               </div>
           </div>
