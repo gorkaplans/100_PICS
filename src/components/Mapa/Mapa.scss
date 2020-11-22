@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .map-container{
     max-width: 30%;
     max-height: 30%;
@@ -5,4 +7,42 @@
     margin-top: 4em;
     margin-left: 6em;
     margin-bottom: 3em;
+
+    .hover-popUp{
+        height: 270px;
+        width: 200px;
+        border: solid 2px $second;
+        background-color: $principal;
+        color: $second;
+        padding: 10px;
+
+        .pop-buttons{
+            margin-top: 12px;
+            .pop-singel-button{
+                margin-right: 5px;
+            }
+        }
+
+        .img-container{
+            width: auto;
+            height: 40%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            border: solid 1px $second;
+            margin-bottom: 10px;
+        }
+        .fine-line{
+            width: 100%;;
+            background: $second;
+            border: 0;
+            height: 1px;
+            margin-top: 5px;
+        }
+
+        .desc{
+            font-size: 8pt;
+        }
+    }
 }
+
