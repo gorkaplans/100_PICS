@@ -1,4 +1,5 @@
 import React, { useState } from 'react'; 
+import Button from '../Button/Button'
 import './Mapa.scss'   
 
 const mountainsAll = {
@@ -27,6 +28,10 @@ const Mapa = ({ mountains }) => {
       
   }
 
+  const handleClosePopUp = () => {
+    setPopUpMountain(null)
+  }
+
 
   
 
@@ -46,7 +51,6 @@ const Mapa = ({ mountains }) => {
               key={m.id} 
               className="cls-2" 
               onMouseEnter={ (e) => handleOnMouseEnter(e, m.id)} 
-              /* onMouseOut={ () => setPopUpMountain(null)} */
               points={mountainsAll[m.id]} />)
 
           )}
@@ -54,12 +58,16 @@ const Mapa = ({ mountains }) => {
       </svg>
       
       { popUpMountain && (
-        <div className="hover-popUp" style={{position: 'absolute', left: popUpleft, top: popUpRight }}>
-          <div className="img-container" style={{backgroundImage:`url(${popUpMountain.img})`}}></div>
-          <h1 className="regular">{popUpMountain.name}</h1>
-          <hr className="fine-line"></hr>
-          <p className="light desc">{popUpMountain.desc}</p>
-        </div>
+          <div className="hover-popUp" style={{position: 'absolute', left: popUpleft, top: popUpRight }}>
+              <div className="img-container" style={{backgroundImage:`url(${popUpMountain.img})`}}></div>
+              <h1 className="regular">{popUpMountain.name}</h1>
+              <hr className="fine-line"></hr>
+              <p className="light desc">{popUpMountain.desc}</p>
+              <div className="pop-buttons">
+              <Button >Veure +</Button>
+              <Button onClick={handleClosePopUp}>Tanca</Button>
+              </div>
+          </div>
         )
       }
      
@@ -70,7 +78,5 @@ const Mapa = ({ mountains }) => {
     )
 }   
 
-
-///colocar id de firebase com id del poigono en el mapa
 
 export default Mapa;

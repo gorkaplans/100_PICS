@@ -16,6 +16,13 @@
         color: $second;
         padding: 10px;
 
+        .pop-buttons{
+            margin-top: 12px;
+            .pop-singel-button{
+                margin-right: 5px;
+            }
+        }
+
         .img-container{
             width: auto;
             height: 40%;
