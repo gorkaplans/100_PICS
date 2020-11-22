@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import Userauth from './pages/Userauth';
 import Loginpage from './pages/Loginpage';
 import Profile from './pages/Profile';
+import Detail from './pages/Detail'
 import {
   BrowserRouter as Router,
   Switch,
@@ -68,7 +69,9 @@ function App() {
           <Route path="/user" exact>
               <Profile />
           </Route>
-          
+          <Route path="/mountain/:mountainname">
+            <Detail />
+         </Route>
         </Switch>  
       </Router>
     </div>
