@@ -28,8 +28,6 @@ const Filter = ({ onSearch }) => {
     
     const handelChangeFormData = (e) => {
 
-        console.log(e.target)
-        
         const {name, value} = e.target
 
         setFormData({...formData,[name]:value})

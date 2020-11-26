@@ -95,6 +95,15 @@ export async function listObjects(collection, filter) {
 }
 
 
+///Funcion qe devuelve una montaña con id 
+
+export async function getMountainById(id){
+  const mountainPageId = await getObjectById('mountains',id) 
+  return mountainPageId
+
+}
+
+
 /// ==> Filter all mountaints on firebae by home filter params
 
 export async function listMountainsByFilter(collection, formData, userLocation) {
@@ -104,7 +113,7 @@ export async function listMountainsByFilter(collection, formData, userLocation) 
 
     const checksTrue = Object.keys(checks).filter(name => checks[name])
 
-    console.log(checksTrue)
+    console.log("HOLA FABRI",checksTrue)
 
 
     db = db.where('difficulty', '==', dificult)

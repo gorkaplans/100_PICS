@@ -69,7 +69,7 @@ function App() {
           <Route path="/user" exact>
               <Profile />
           </Route>
-          <Route path="/mountain/:mountainname">
+          <Route path="/mountain/:id">
             <Detail />
          </Route>
         </Switch>  
