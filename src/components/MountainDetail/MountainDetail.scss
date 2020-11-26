@@ -63,3 +63,42 @@
     }
 
 }
+
+.user-comments{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
+
+    .user-comment{
+        padding: 20px;
+        border: solid 1px $second;
+        margin: 20px;
+        overflow: hidden;
+
+        b{
+            font-weight: 900;
+        }
+
+        .comment-text{
+            font-size: 11pt;
+        }
+
+        .line-comment{
+            background: $second;
+            border: 0;
+            height: 1px;
+            margin-top: 1em;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+    }
+}
+
+.line{
+    background: $second;
+    border: 0;
+    height: 1px;
+    margin-top: 1em;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}

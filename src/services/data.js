@@ -95,6 +95,26 @@ export async function listObjects(collection, filter) {
 }
 
 
+export async function listExcursions(id) {
+  try {
+    let db = getCollection('excursions');
+    
+    db = db.where('mountainId', '==', id).limit(6);
+    
+    const querySnapshot = await db.get();
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push(parseDocument(doc));
+    })
+    return data;
+    
+  } catch (error) {
+    console.log("listObjects -> error", error)
+    return [];
+  }
+}
+
+
 ///Funcion qe devuelve una montaña con id 
 
 export async function getMountainById(id){
@@ -113,7 +133,6 @@ export async function listMountainsByFilter(collection, formData, userLocation) 
 
     const checksTrue = Object.keys(checks).filter(name => checks[name])
 
-    console.log("HOLA FABRI",checksTrue)
 
 
     db = db.where('difficulty', '==', dificult)

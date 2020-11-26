@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 import { useParams } from 'react-router-dom';
-import { getMountainById } from '../../services/data';
+import { getMountainById, listExcursions } from '../../services/data';
 import { useSelector } from 'react-redux';
 
 import { addExcursion } from '../../logic/excursions'
@@ -13,15 +13,18 @@ const MountainDetail = () => {
     const[mountain,setMountain]= useState({})
     const [date, setDate] = useState('2020-07-22')
     const [comment, setComment] = useState('')
+    const [userComments, setUserComments] = useState([])
+    
     const userName = useSelector(state => state.user !== null ? state.user.name : " nom ")
-
+    
     
     useEffect(() => {
         getMountainById(id).then(rs => setMountain(rs));
-        
+        listExcursions(id).then(rs => setUserComments(rs))
     },[]) 
 
     const {name, desc, altitude, location, img,} = mountain
+    
 
 
     const handelSumbit = async (e) => {
@@ -38,6 +41,8 @@ const MountainDetail = () => {
         setComment('');
 
     }
+
+
 
     
 
@@ -64,6 +69,18 @@ return (
                 <label className="light" for="comment">Explicans tot allò que et vingui de gust...</label>
                 <textarea className="caixa" value={comment} onChange={({target: { value }}) => setComment(value)} rows="8" cols="50"></textarea>
                 <Button onClick={handelSumbit} name='envia'>Envia</Button>
+            </div>
+            <hr className="line"></hr>
+
+            <div className="user-comments">
+            {userComments.map(m => (
+            <div className="user-comment">
+                <p className="light"> <b>{m.user} - </b>{m.date}</p>
+                <hr className="line-comment"></hr>
+                <p className="light comment-text">{m.comment}</p>
+            </div>)
+
+          )}
             </div>
 
         </div>
