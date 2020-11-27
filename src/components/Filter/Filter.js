@@ -29,7 +29,7 @@ const Filter = ({ onSearch }) => {
     const UserLocation = useSelector(state => state.user !== null ? state.user.coords : [41.38879,2.15899])
  
     useEffect(() => {
-        handleSummbitAllMountains();
+        getAllMountains().then(m => onSearch(m));
     },[]) 
 
     const handelChangeFormData = (e) => {
