@@ -1,31 +1,37 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import Button from '../Button'
 import { useSelector } from 'react-redux'
 
 
 import'./Filter.scss'
-import { listMountainsByFilter } from '../../services/data';
+import { listMountainsByFilter, getAllMountains} from '../../services/data';
+
+
+const defaultFormaData = {
+    dificult:'',
+    time:4,
+    distance:100,
+    altitude:1500,
+    checks:{
+        family:false,
+        dog:false,
+        water:false,
+        refuge:false,
+        eat:false,
+        parking:false,
+    }
+}
 
 const Filter = ({ onSearch }) => {
 
-    const[formData,setFormData]=useState({
-        dificult:'easy',
-        time:4,
-        distance:100,
-        altitude:1500,
-        checks:{
-            family:false,
-            dog:false,
-            water:false,
-            refuge:false,
-            eat:false,
-            parking:false,
-        }
-    })
+    const[formData,setFormData]=useState(defaultFormaData)
     /// agafa les coords del user o sino posa les de bcn per defecte
     const UserLocation = useSelector(state => state.user !== null ? state.user.coords : [41.38879,2.15899])
+ 
+    useEffect(() => {
+        handleSummbitAllMountains();
+    },[]) 
 
-    
     const handelChangeFormData = (e) => {
 
         const {name, value} = e.target
@@ -45,25 +51,28 @@ const Filter = ({ onSearch }) => {
     }
 
    
-    
-
     const handleSummbitFilterMountains = async (e) => {
             e.preventDefault();
             const mountaintsHome = await listMountainsByFilter('mountains',formData,UserLocation)
             onSearch(mountaintsHome);
-            /// cridar la funcio de list mountains amb les coords del user 
+            
     }
-   
-    console.log(formData)
+
+    const handleSummbitAllMountains = async (e) => {
+        e && e.preventDefault() 
+        const mountaintsHome = await getAllMountains();
+        onSearch(mountaintsHome);
+        setFormData(defaultFormaData)
+}
 
     return (
        <div className="filter-container">
            <section className="dificult">
                 <p className="filter-section regular"> Dificultat</p>
                 <div className="action-container buttons">
-                    <Button onClick={handelChangeFormData} name='dificult' value='easy'>Facil</Button>
-                    <Button onClick={handelChangeFormData} name='dificult' value='medium'>Moderat</Button>
-                    <Button onClick={handelChangeFormData} name='dificult' value='hard'>Difícil</Button>
+                    <Button active={formData.dificult === 'easy'} onClick={handelChangeFormData} name='dificult' value='easy'>Facil</Button>
+                    <Button active={formData.dificult === 'medium'} onClick={handelChangeFormData} name='dificult' value='medium'>Moderat</Button>
+                    <Button active={formData.dificult === 'hard'} onClick={handelChangeFormData} name='dificult' value='hard'>Difícil</Button>
                 </div>
            </section>
            <section className=" filter-section time">
@@ -115,8 +124,9 @@ const Filter = ({ onSearch }) => {
                 </div>
             </section>
             <section className="dificult">
-                <div className="action-container buttons">
+                <div className="action-container2 buttons2">
                     <Button onClick={handleSummbitFilterMountains}>Buscar</Button>
+                    <Button onClick={handleSummbitAllMountains}>Neteja</Button>
                 </div>
            </section>
        </div>

@@ -2,9 +2,9 @@ import React from 'react';
 
 import'./Button.scss'
 
-const Button = ({ children, onClick, name, value }) => {
+const Button = ({ children, onClick, name, value, active }) => {
     return (
-      <button className="normal-button light" name={name} value={value} onClick={onClick}>{children}</button>
+      <button className={`normal-button light ${active ? "active" : ''}`} name={name} value={value} onClick={onClick}>{children}</button>
     )
   } 
 

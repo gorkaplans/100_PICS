@@ -95,11 +95,11 @@ export async function listObjects(collection, filter) {
 }
 
 
-export async function listExcursions(id) {
+export async function listExcursions(id, limit) {
   try {
     let db = getCollection('excursions');
     
-    db = db.where('mountainId', '==', id).limit(6);
+    db = db.where('mountainId', '==', id).orderBy('date', 'desc').limit(limit);
     
     const querySnapshot = await db.get();
     const data = [];
@@ -161,6 +161,15 @@ export async function listMountainsByFilter(collection, formData, userLocation) 
     console.log("listMountainsByFilter -> error", error)
     return [];
   }
+}
+
+
+/// torna totes les muntanyes 
+
+export async function getAllMountains(){
+    const db = listObjects('mountains')
+
+    return db
 }
 
 
