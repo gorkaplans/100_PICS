@@ -10,6 +10,7 @@ import { addExcursion } from '../../logic/excursions'
 import Button from '../Button'
 import Login from '../Login'; 
 import Modal from '../Modal';
+import WeatherBar from '../WeatherBar'
 
 import'./MountainDetail.scss'
 
@@ -35,7 +36,7 @@ const MountainDetail = () => {
         listExcursions(id,limit).then(rs => setUserComments(rs))
     },[id, limit]) 
 
-    const {name, desc, altitude, location, img,} = mountain
+    const {name, desc, altitude, location, img, coords} = mountain
     
 
 
@@ -77,9 +78,14 @@ return (
                     </ul>
                 </section>
             </div>
-            <div className="weather">
-            <h1 className="bold title">Tiempo</h1>   
-            </div>
+           
+           {coords ? 
+          <WeatherBar coords={coords}></WeatherBar>
+            : <div className="weather">
+            <h1 className="bold title">Carregant Meteo</h1>   
+            </div>}
+            
+            
             <div className="done-container">
                 
                 {(userName !== " ")? 
