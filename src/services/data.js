@@ -95,6 +95,35 @@ export async function listObjects(collection, filter) {
 }
 
 
+export async function listExcursions(id, limit) {
+  try {
+    let db = getCollection('excursions');
+    
+    db = db.where('mountainId', '==', id).orderBy('date', 'desc').limit(limit);
+    
+    const querySnapshot = await db.get();
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push(parseDocument(doc));
+    })
+    return data;
+    
+  } catch (error) {
+    console.log("listObjects -> error", error)
+    return [];
+  }
+}
+
+
+///Funcion qe devuelve una montaña con id 
+
+export async function getMountainById(id){
+  const mountainPageId = await getObjectById('mountains',id) 
+  return mountainPageId
+
+}
+
+
 /// ==> Filter all mountaints on firebae by home filter params
 
 export async function listMountainsByFilter(collection, formData, userLocation) {
@@ -104,7 +133,6 @@ export async function listMountainsByFilter(collection, formData, userLocation) 
 
     const checksTrue = Object.keys(checks).filter(name => checks[name])
 
-    console.log(checksTrue)
 
 
     db = db.where('difficulty', '==', dificult)
@@ -133,6 +161,15 @@ export async function listMountainsByFilter(collection, formData, userLocation) 
     console.log("listMountainsByFilter -> error", error)
     return [];
   }
+}
+
+
+/// torna totes les muntanyes 
+
+export async function getAllMountains(){
+    const db = listObjects('mountains')
+
+    return db
 }
 
 

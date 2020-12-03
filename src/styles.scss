@@ -33,3 +33,15 @@ $second: #262423;
     font-family: 'NeueMachina_bold';
     font-size: 1em;
 }
+
+.done-container{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .pregunta{
+        font-size: 14pt;
+        margin-bottom: 10px;
+    }
+}

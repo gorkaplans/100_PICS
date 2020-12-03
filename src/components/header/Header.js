@@ -16,7 +16,7 @@ const Header = ({user}) => {
             <Link to='/about' className="apartat">Sobre això?</Link>
             <Link to='/list' className="apartat">Llistat</Link>
             <Link to='/contact' className="apartat">Contacte</Link>
-            { user
+            { user && user.name
             ? <Link to='/user' className="apartat">Perfil</Link>  
             :<Link to='/userauth' className="apartat">SignUp</Link>}
         </div>
