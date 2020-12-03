@@ -36,7 +36,7 @@ const MountainDetail = () => {
         listExcursions(id,limit).then(rs => setUserComments(rs))
     },[id, limit]) 
 
-    const {name, desc, altitude, location, img, coords} = mountain
+    const {name, desc, altitude, location, img, city} = mountain
     
 
 
@@ -79,8 +79,8 @@ return (
                 </section>
             </div>
            
-           {coords ? 
-          <WeatherBar coords={coords}></WeatherBar>
+           {city ? 
+          <WeatherBar city={city}></WeatherBar>
             : <div className="weather">
             <h1 className="bold title">Carregant Meteo</h1>   
             </div>}
