@@ -7,6 +7,13 @@
     background: none;
     box-shadow:0 1px 1px $second ;
     transition-duration: .2s;
+    
+
+    a{
+      text-decoration: none;
+      color: $second;
+      
+    }
 }
 
 
@@ -16,4 +23,5 @@
   background-color: $second;
   color: $principal;
   outline: none;
+  
 }

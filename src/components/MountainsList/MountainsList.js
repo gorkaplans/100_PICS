@@ -2,39 +2,38 @@ import React from 'react';
 
 import'./MountainsList.scss'
 
-const MountainsList = ({ mountains, onMountainHover }) => {
+const MountainsList = ({ mountains, onMountainHover, onClick, onMouseLeave2 }) => {
 
-  /*   const handleOnMouseEnterList = (mountain) => {
-        const {id} = mountain
-        console.log("handleOnMouseEnterList -> id}", id)
-        const mountainId = document.getElementById(id)
-        const top = mountainId.getBoundingClientRect(mountainId).top
-        const left = mountainId.getBoundingClientRect(mountainId).left
-        console.log(top)
-    } */
+  
 
     return (
        <div className="list-container"> 
            {mountains.map(m => (
-            <h1  onMouseEnter={() => onMountainHover(m)} onMouseLeave={() => onMountainHover(null)} className = "regular name"> {m.name} </h1>)
+            <h1  onClick={onClick} onMouseEnter={() => onMountainHover(m)} onMouseLeave={() => onMountainHover(null), onMouseLeave2} className = "regular name apartat"> {m.name} </h1>)
 
           )}
            {mountains.map(m => (
-            <h1 className = "regular name"> {m.name} </h1>)
+            <h1  onClick={onClick} onMouseEnter={() => onMountainHover(m)} onMouseLeave={() => onMountainHover(null)} className = "regular name apartat"> {m.name} </h1>)
 
           )}
            {mountains.map(m => (
-            <h1 className = "regular name"> {m.name} </h1>)
+            <h1  onClick={onClick} onMouseEnter={() => onMountainHover(m)} onMouseLeave={() => onMountainHover(null)} className = "regular name apartat"> {m.name} </h1>)
 
           )}
            {mountains.map(m => (
-            <h1 className = "regular name"> {m.name} </h1>)
+            <h1  onClick={onClick} onMouseEnter={() => onMountainHover(m)} onMouseLeave={() => onMountainHover(null)} className = "regular name apartat"> {m.name} </h1>)
 
           )}
            {mountains.map(m => (
-            <h1 className = "regular name"> {m.name} </h1>)
+            <h1  onClick={onClick} onMouseEnter={() => onMountainHover(m)} onMouseLeave={() => onMountainHover(null)} className = "regular name apartat"> {m.name} </h1>)
 
           )}
+          {mountains.map(m => (
+            <h1  onClick={onClick} onMouseEnter={() => onMountainHover(m)} onMouseLeave={() => onMountainHover(null)} className = "regular name apartat"> {m.name} </h1>)
+
+          )}
+         
+          
        </div>
     )
 }   
