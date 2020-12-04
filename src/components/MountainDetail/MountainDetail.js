@@ -26,6 +26,7 @@ const MountainDetail = () => {
 
     
     const userName = useSelector(state => state.user && state.user.name ? state.user.name : " ")
+    const userId = useSelector(state => state.user && state.user.id ? state.user.id : " ")
     
     
     useEffect(() => {
@@ -36,7 +37,7 @@ const MountainDetail = () => {
         listExcursions(id,limit).then(rs => setUserComments(rs))
     },[id, limit]) 
 
-    const {name, desc, altitude, location, img, coords} = mountain
+    const {name, desc, altitude, location, img, city} = mountain
     
 
 
@@ -46,12 +47,16 @@ const MountainDetail = () => {
         const excursionDone = {
             mountainId: id,
             user: userName,
+            userId: userId,
             date: date,
             comment: comment, 
         }
 
         addExcursion(excursionDone);
         setComment('');
+        listExcursions(id,limit).then(rs => setUserComments(rs))
+
+
 
     }
 
@@ -79,9 +84,9 @@ return (
                 </section>
             </div>
            
-           {coords ? 
-          <WeatherBar coords={coords}></WeatherBar>
-            : <div className="weather">
+           {city ? 
+          <WeatherBar city={city}></WeatherBar>
+            : <div className="loading-container">
             <h1 className="bold title">Carregant Meteo</h1>   
             </div>}
             

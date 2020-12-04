@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'; 
+import {useClickAway} from 'react-use';
 import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 import './Mapa.scss'   
@@ -22,17 +23,14 @@ const Mapa = ({ mountains, showMountain }) => {
   const[popUpRight,setPopUpRight] = useState(null)
 
 
+
   useEffect( () => {
     setPopUpMountain(showMountain)
   },[showMountain])
 
-
-  const handleOnMouseEnterList = (e, id, _ref) => {
-      const mountainHover = mountains.filter(m => m.id === id)
-      setPopUpMountain(mountainHover[0])
-      setPopUpLeft(_ref.current.getBoundingClientRect().left)
-      setPopUpRight(_ref.current.getBoundingClientRect().top)
-  }
+  useClickAway(ref, () => {
+    setPopUpMountain(null);
+  });
   
   const handleOnMouseEnter = (e, id) => {
       const mountainHover = mountains.filter(m => m.id === id)
@@ -88,7 +86,6 @@ const Mapa = ({ mountains, showMountain }) => {
         <g id="Layer_2" data-name="Layer 2">
           {mountains.map(m => (
             <polygon
-              ref={ref}
               id={m.id}
               key={m.id} 
               className="cls-2" 
@@ -100,7 +97,7 @@ const Mapa = ({ mountains, showMountain }) => {
       </svg>
       
       { popUpMountain && (
-          <div className="hover-popUp" style={{position: 'absolute', left: popUpleft, top: popUpRight }}>
+          <div ref={ref} className="hover-popUp" style={{position: 'absolute', left: popUpleft, top: popUpRight }}>
               <div className="img-container" style={{backgroundImage:`url(${popUpMountain.img})`}}></div>
               <h1 className="regular">{popUpMountain.name}</h1>
               <hr className="fine-line"></hr>

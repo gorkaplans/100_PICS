@@ -1,0 +1,40 @@
+@import '../../styles.scss';
+
+.container-load{
+    min-width: 100vh;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1{
+      color: $second;
+    }
+
+  .loader {
+    border: 8px solid $principal;
+    border-radius: 50%;
+    border-top: 8px solid $second;
+    border-bottom: 8px solid $second;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  .load-titile{
+    margin-top: 70px;
+    font-size: 24pt;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}
