@@ -52,6 +52,9 @@ const MountainDetail = () => {
 
         addExcursion(excursionDone);
         setComment('');
+        listExcursions(id,limit).then(rs => setUserComments(rs))
+
+
 
     }
 
@@ -81,7 +84,7 @@ return (
            
            {city ? 
           <WeatherBar city={city}></WeatherBar>
-            : <div className="weather">
+            : <div className="loading-container">
             <h1 className="bold title">Carregant Meteo</h1>   
             </div>}
             

@@ -12,10 +12,16 @@ export async function getWeatherByCityName(city){
     const sunsetMinuts = sunset.getMinutes()
 
     function formatDate(num1, num2){
-        if(num2.length > 1) {
-            const sunriseTime = `0${num1}:${num2}h`
+        if(num1 >= 10 && num2 > 10) {
+            const sunriseTime = `${num1}:${num2}h`
             return sunriseTime
-        }else{
+        }else if(num1 >= 10 && num2 < 10){
+            const sunriseTime = `${num1}:0${num2}h`
+            return sunriseTime 
+        }else if(num1 < 10 && num2 >= 10){
+            const sunriseTime = `0${num1}:${num2}h`
+            return sunriseTime 
+        }else if(num1 < 10 && num2 < 10){
             const sunriseTime = `0${num1}:0${num2}h`
             return sunriseTime 
         }
