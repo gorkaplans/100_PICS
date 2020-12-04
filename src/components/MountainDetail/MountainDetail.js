@@ -26,6 +26,7 @@ const MountainDetail = () => {
 
     
     const userName = useSelector(state => state.user && state.user.name ? state.user.name : " ")
+    const userId = useSelector(state => state.user && state.user.id ? state.user.id : " ")
     
     
     useEffect(() => {
@@ -46,6 +47,7 @@ const MountainDetail = () => {
         const excursionDone = {
             mountainId: id,
             user: userName,
+            userId: userId,
             date: date,
             comment: comment, 
         }

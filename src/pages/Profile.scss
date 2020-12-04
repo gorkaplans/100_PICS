@@ -1,0 +1,33 @@
+.profile-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+
+    .left-user{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .buttons-box{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100px;
+        }
+    }
+
+    .right-map{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .email{
+        margin-bottom: 20px;
+    }
+    
+
+    
+}

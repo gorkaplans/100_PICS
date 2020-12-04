@@ -14,8 +14,10 @@ const Home = () => {
     const handleSearch = (mountainsHome) => {
     
       setMountains(mountainsHome)
-   
-  }
+      console.log(mountainsHome);
+   }
+
+  
   return (
    <MainLayout>
     <div className="home-container">

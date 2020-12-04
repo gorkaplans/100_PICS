@@ -94,6 +94,27 @@ export async function listObjects(collection, filter) {
   }
 }
 
+export async function listUserExcursions(id) {
+  try {
+    let db = getCollection('excursions');
+    
+    db = db.where('userId', '==', id);
+    
+    const querySnapshot = await db.get();
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push(parseDocument(doc));
+    })
+    return data;
+    
+  } catch (error) {
+    console.log("listObjects -> error", error)
+    return [];
+  }
+}
+
+
+
 
 export async function listExcursions(id, limit) {
   try {
