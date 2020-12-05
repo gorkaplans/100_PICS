@@ -8,6 +8,14 @@
     margin-left: 6em;
     margin-bottom: 3em;
 
+    .cls-1{
+        fill: var(--second);
+    }
+
+    .cls-2{
+        fill: var(--principal)
+    }
+
     .hover-popUp{
         height: 270px;
         width: 200px;

@@ -31,6 +31,7 @@ const Titutlar2left = ({ title, children, img }) => {
         transform: `translateY(${ offsetY * 0.5}px)`
         }}>
           
+          
         </div>
 
       <section className="Titutlar2left-container" >
