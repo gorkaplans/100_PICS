@@ -29,7 +29,7 @@ const Home = () => {
 
   
   return (
-   <MainLayout>
+   <MainLayout >
      {ready?
       <div className="home-container">
       <div className="left">

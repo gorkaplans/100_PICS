@@ -11,9 +11,9 @@
     .hover-popUp{
         height: 270px;
         width: 200px;
-        border: solid 2px $second;
-        background-color: $principal;
-        color: $second;
+        border: solid 2px var(--second);
+        background-color: var(--principal);
+        color: var(--second);
         padding: 10px;
 
         .pop-buttons{
@@ -29,12 +29,12 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-            border: solid 1px $second;
+            border: solid 1px var(--second);
             margin-bottom: 10px;
         }
         .fine-line{
             width: 100%;;
-            background: $second;
+            background: var(--second);
             border: 0;
             height: 1px;
             margin-top: 5px;
@@ -48,8 +48,8 @@
 
 
         .hoverlist{
-            fill: $principal;
-            stroke: $principal;
+            fill: var(--principal);
+            stroke: var(--principal);
             stroke-width: 10px;
             transition-duration: 0.5s;
             
