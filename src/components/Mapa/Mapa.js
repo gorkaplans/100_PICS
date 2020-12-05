@@ -53,7 +53,7 @@ const Mapa = ({ mountains, showMountain }) => {
        <div className="map-container">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500.83 486.53">
         <defs>
-          <style dangerouslySetInnerHTML={{__html: ".cls-1{fill:#262424;fill-rule:evenodd;}.cls-2{fill:#e6e3d1;}" }} />
+          <style dangerouslySetInnerHTML={{__html: ".cls-2{fill:#e6e3d1;}" }} />
         </defs>
         <title>mapa</title>
         <g id="Layer_1" data-name="Layer 1">

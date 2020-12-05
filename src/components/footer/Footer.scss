@@ -6,8 +6,9 @@
     align-content: center;
     min-height: 26px;
     width: 100%;
-    background-color: $principal;
+    background-color: var(--principal);
     margin-top: auto;
+    color: var(--second);
 
     .a-footer{
         font-size: 10pt;

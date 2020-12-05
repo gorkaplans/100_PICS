@@ -52,7 +52,7 @@
             width: 350px;
             display: flex;
             justify-content: space-between;
-            color: $second;
+            color: var(--second);
             span:first-child{
               margin-left: 10px;
             }
@@ -69,38 +69,38 @@
                   height: 6px;
                   cursor: pointer;
                   box-shadow: none;
-                  background: $second;
+                  background: var(--second);
                   border-radius: 0px;
-                  border: 0px solid $second;
+                  border: 0px solid var(--second);
               }
               &::-moz-range-track {
                   width: 100%;
                   height: 1px;
                   cursor: pointer;
                   box-shadow: none;
-                  background: $second;
+                  background: var(--second);
                   border-radius: 0px;
-                  border: 0px solid $second;
+                  border: 0px solid var(--second);
               }
             
               &::-webkit-slider-thumb {
                   box-shadow: none;
-                  border: 0px solid $second;
+                  border: 0px solid var(--second);
                   height: 30px;
                   width: 2px;
                   border-radius: 11px;
-                  background: $second;
+                  background: var(--second);
                   cursor: pointer;
                   -webkit-appearance: none;
                   margin-top: -10px;
               }
             &::-moz-range-thumb{
                   box-shadow: none;
-                  border: 0px solid $second;
+                  border: 0px solid var(--second);
                   height: 21px;
                   width: 11px;
                   border-radius: 11px;
-                  background: $second;
+                  background: var(--second);
                   cursor: pointer;
                   -webkit-appearance: none;
                   margin-top: -10px;

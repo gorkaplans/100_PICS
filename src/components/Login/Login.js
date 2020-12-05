@@ -17,6 +17,7 @@ const Login = ({ redirect = true }) => {
   const [passwordError, setPasswordError] = useState(false)
   const [loginError, setLoginError] = useState('');
   const [loginOpen, setLoginOpen] = useState(false);
+  const [error, setError] = useState(false)
 
 
   let history = useHistory();
@@ -28,11 +29,13 @@ const Login = ({ redirect = true }) => {
     if (!mail) {
       error = true;
       setEmailError(true)
+      setError(true)
     }
 
     if (!password) {
       error = true;
       setPasswordError(true)
+      setError(true)
     }
 
     if (!error) {
@@ -44,6 +47,7 @@ const Login = ({ redirect = true }) => {
         }
       } else {
         setLoginError(error)
+        setError(true)
       }
     }
   }
@@ -55,6 +59,10 @@ const Login = ({ redirect = true }) => {
   return (
     <div className="login-box">
       <h2 className="bold">Accedeix</h2>
+      {error ?
+          <h2 className="bold">Email o contrasenya incorrectes!</h2>
+          :''
+          }
       <form>
         <div className="user-box">
           <input type="text" value={mail} onChange={({ target: { value } }) => setMail(value)} mail required />

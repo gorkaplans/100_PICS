@@ -26,7 +26,8 @@ const Filter = ({ onSearch }) => {
 
     const[formData,setFormData]=useState(defaultFormaData)
     /// agafa les coords del user o sino posa les de bcn per defecte
-    const UserLocation = useSelector(state => state.user !== null ? state.user.coords : [41.38879,2.15899])
+    const UserLocation = useSelector(state => state.user && state.user.coords ? state.user.coords : [41.38879,2.15899])
+
  
     useEffect(() => {
         getAllMountains().then(m => onSearch(m));

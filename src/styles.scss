@@ -17,8 +17,15 @@
     font-weight: 900;
 }
 
+
 $principal: #E5E3D1;
 $second: #262423;
+
+$principal-dark: #0E3142;
+$second-dark: #D4A68F;
+
+
+
 
 .light{
     font-family: 'NeueMachina_light';
@@ -26,7 +33,7 @@ $second: #262423;
 }
 .regular{
     font-family: 'NeueMachina_regular';
-    color: $second;
+    color: var(--second);
 
 }
 .bold{

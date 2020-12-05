@@ -17,6 +17,8 @@ const SignUp = () => {
     const [emailError, setEmailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [signupError, setSignupError] = useState('');
+    const [error, setError] = useState(false)
+
 
     let history = useHistory();
 
@@ -27,11 +29,13 @@ const SignUp = () => {
         if(!mail) {
           error = true; 
           setEmailError(true)
+          setError(true)
         }
 
         if(!password) {
           error = true; 
           setPasswordError(true)
+          setError(true)
         }
 
         if(!error){
@@ -40,6 +44,7 @@ const SignUp = () => {
           history.push('/user')
         } else {
           setSignupError(error)
+          setError(true)
         } }
 
         console.log(name, mail, password)
@@ -49,6 +54,10 @@ const SignUp = () => {
     return (
       <div className="login-box">
         <h2 className="bold">Registrat</h2>
+        {error ?
+          <h2 className="bold">Algun dels camps introduits no és vàlid!</h2>
+          :''
+          }
         <form>
         <div className="user-box">
             <input type="text" value={name} onChange={({target: { value }}) => setName(value)} name required />

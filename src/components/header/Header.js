@@ -1,16 +1,31 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setTheme } from '../../redux/actions/themeActions'
 
 import'./Header.scss'
 
-const Header = ({user}) => {
-    console.log('user', user);
+
+
+
+const Header = () => {
+
+    const user = useSelector((state) => state.user)
+    const dispatch = useDispatch()
+
+    const handleChangeColor = (e) =>{
+        const theme = e.target.checked ? 'nit' : 'dia';
+        dispatch(setTheme(theme));
+    }
+    
     return (
     <div className="head">
+        <section className="head-left">
         <Link to='/' className="logo">
             <h3 className="regular"> 100_pics</h3>
-        </Link>
+         </Link>
+         <input class="toggle" type="checkbox" onChange={handleChangeColor}/>
+         </section>
         <div className="menu light">
             <Link to='/' className="apartat">Inici</Link>
             <Link to='/about' className="apartat">Sobre això?</Link>
@@ -24,12 +39,8 @@ const Header = ({user}) => {
     
     ) } 
 
-const mapStateToProp = (state) => {
-    return {
-      user: state.user
-    }
-  }
+
   
 
   
-  export default connect(mapStateToProp)(Header);
+  export default Header;

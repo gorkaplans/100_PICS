@@ -13,14 +13,14 @@
     margin-bottom: 8em;
     width: 500px;
     padding: 40px;
-    background: $principal;
+    background: var(--principal);
     box-sizing: border-box;
   }
   
   .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
-    color: $second;
+    color: var(--second);
     text-align: center;
     margin-bottom: 2em;
   }
@@ -34,10 +34,10 @@
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: $second;
+    color: var(--second);
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid $second;
+    border-bottom: 1px solid var(--second);
     outline: none;
     background: transparent;
   }
@@ -47,7 +47,7 @@
     left: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: $second;
+    color: var(--second);
     pointer-events: none;
     transition: .5s;
   }
@@ -56,6 +56,6 @@
   .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: $second;
+    color: var(--second);
     font-size: 12px;
   }

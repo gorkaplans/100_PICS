@@ -3,15 +3,16 @@
 .normal-button{
     width: 80px;
     height: 30px;
-    border: solid 1px $second;
+    border: solid 1px var(--second);
     background: none;
-    box-shadow:0 1px 1px $second ;
+    box-shadow:0 1px 1px var(--second) ;
     transition-duration: .2s;
+    color: var(--second);
     
 
     a{
       text-decoration: none;
-      color: $second;
+      color: var(--second);
       
     }
 }
@@ -20,8 +21,8 @@
 .normal-button.active,
 .normal-button:hover,
 .normal-button:focus {
-  background-color: $second;
-  color: $principal;
+  background-color: var(--second);
+  color: var(--principal);
   outline: none;
   
 }
