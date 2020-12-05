@@ -26,53 +26,36 @@ const Profile = () => {
   
 
 
-  useEffect(() => {
-    listUserExcursions(userId).then(rs => callback(rs))
-  },[])
-
-  function callback(r){
-      setExcursions(r)
-      console.log(excursions)
-      for(var i=0; i<=excursions.length; i++ ) {
+    useEffect(() => {
+      listUserExcursions(userId).then(rs => setExcursions(rs))
       
-        console.log("callback -> excursions[i]", excursions[i])
-        
-    } 
+    },[])
 
-    return mountains
+  
+ 
 
-  }
+    useEffect(() => {
+      const excursionsPromises = excursions.map( ex => getMountainsByExcursions(ex.mountainId) )
+      Promise.all(excursionsPromises).then(setMountains)
 
-  //// errores party!!!
+    },[excursions])
   
 
 
   
 
-  function getMountainsByExcursions (id){
-    getObjectById('mountains', id).then(rs => {
-      setMountains([...mountains,rs])
-    })
-
-  }
+    function getMountainsByExcursions (id){
+      return getObjectById('mountains', id)
+    }
 
   
 
-
-
-
-
-
-
-
-
-
-  const handelSummbitLogout = (e) => {
-      e.preventDefault();
-      userLogout(); 
-      history.push('./')
-      dispatch(setUserProfile(null));
-  }
+    const handelSummbitLogout = (e) => {
+          e.preventDefault();
+          userLogout(); 
+          history.push('./')
+          dispatch(setUserProfile(null));
+      }
 
 
 
@@ -93,7 +76,16 @@ const Profile = () => {
        </Titular>
       </div>
       <div className="right-map">
-      <Mapa mountains={mountains}></Mapa>
+        <Mapa mountains={mountains}></Mapa>
+          <div className="undermap">
+          <section>
+            <p className="regular">Has realitzat:</p>
+            <h1 className="bold">{mountains.length}/100</h1>
+          </section>
+          <section className="mespics">
+            <p className="light">Per aconseguir més pics marcat en el teu usuari, vés al detall de la muntanya i deixa un comentari explicant com va ser la teva experiència.</p>
+          </section>
+        </div>
       </div>
     </div>  
 </MainLayout>

@@ -13,10 +13,10 @@
     }
 
   .loader {
-    border: 8px solid $principal;
+    border: 4px solid $principal;
     border-radius: 50%;
-    border-top: 8px solid $second;
-    border-bottom: 8px solid $second;
+    border-top: 4px solid $second;
+    border-bottom: 4px solid $second;
     width: 120px;
     height: 120px;
     -webkit-animation: spin 2s linear infinite;
