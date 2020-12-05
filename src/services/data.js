@@ -176,6 +176,7 @@ export async function listMountainsByFilter(collection, formData, userLocation) 
     ///filtra la distancia
     const dataFilterdistance = dataFilter.filter(m => getDistanceBetweenUserCoordsAndMountainCoors(m.coords.w_,m.coords.T_,userLocation[0],userLocation[1]) <= Number(distance))
     
+    console.log("listMountainsByFilter -> dataFilterdistance", dataFilterdistance)
     return dataFilterdistance;
 
   } catch (error) {

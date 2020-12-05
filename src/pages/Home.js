@@ -3,13 +3,18 @@ import Mapa from "../components/Mapa/Mapa";
 import Titular from "../components/Titular";
 import Filter from '../components/Filter'
 import './Home.scss'
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Loading from "../components/Loading";
 
 const Home = () => {
 
     const[mountains, setMountains] = useState([])
-    //use state de los picos en la home 
-    //useeffect para llamar inicialmente al handelsearch para mostar los picos por defecto en la home.
+    const[ready, setReady]=useState(false)
+
+    useEffect(() => {
+      wait1second()
+    },[])
+    
   
     const handleSearch = (mountainsHome) => {
     
@@ -17,10 +22,16 @@ const Home = () => {
       console.log(mountainsHome);
    }
 
+   function wait1second () {
+    setTimeout(() => setReady(true), 800)
+
+  }
+
   
   return (
    <MainLayout>
-    <div className="home-container">
+     {ready?
+      <div className="home-container">
       <div className="left">
         <Mapa mountains={mountains}></Mapa>
         <Titular title="100 muntanyes">
@@ -31,6 +42,9 @@ const Home = () => {
         <Filter onSearch={handleSearch}></Filter>
       </div>
     </div>  
+    : <Loading></Loading>
+    }
+   
    </MainLayout>
   );
 }

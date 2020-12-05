@@ -22,7 +22,7 @@ import getUserLocation from './logic/geolocationUser';
 
 function App() {
   const dispatch = useDispatch();
-  const[location,setLocation]=useState([])
+  const[location,setLocation]=useState(null)
  
   
 
