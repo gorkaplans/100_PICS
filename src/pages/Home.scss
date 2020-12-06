@@ -1,5 +1,6 @@
 .home-container{
     display: flex;
+    
 
     .left{
         display: flex;
@@ -32,4 +33,52 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+@media (max-width: 768px) {
+
+    body{
+        width: 100%;
+    }
+
+    .home-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .left{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .map-container{
+            margin-left: 0;
+        }
+
+        .titular-container{
+            margin-right: 0;
+            margin-left: 0;
+
+            .line{
+                width: auto;
+            }
+        }
+
+        .filter-container{
+            margin-right: 0;
+            height: auto;
+            width: auto;
+            margin-top: 0;
+            margin-right: 0;
+
+        }
+    }
+
+   
+  
 }
