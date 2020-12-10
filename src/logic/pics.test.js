@@ -1,5 +1,6 @@
-import { getMountainById } from '../services/data' 
-import { handelChangeFormData } from '../components/Filter'
+import { render } from '@testing-library/react'
+import { getWeatherByCityName } from '../logic/weather';
+import Titular from '../components/Titular';
 
 
 describe('getMountainById', () => {
@@ -13,14 +14,21 @@ describe('getMountainById', () => {
             console.log('not mountain')
         }})
 
-    test('clean',() => {
+    test('get city weather by city name', async () => {
 
-            try{
-                const result = 1+1;
-                expect(result).toBe(2);
-            }catch (error) {
-                console.log('not mountain')
-            }})    
+        const result = await getWeatherByCityName('barcelona');
+        expect(result.name.toUpperCase()).toBe('BARCELONA');
+    })  
+
+    test('get the name html by component titular', async () => {
+
+        const props = { title: 'Marko' }
+        const { container, getByText } = await render(<Titular {...props} ></Titular>)
+
+        expect(getByText('Marko')).toBeInTheDocument()
+    })  
+    
+    
 
 })
 
