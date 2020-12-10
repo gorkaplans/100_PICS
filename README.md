@@ -12,6 +12,15 @@ It is a web stack that works as a repository of the 100 most iconic mountains in
 
 ![alt text](http://ivandax.com/images/simpletxt/techs.JPG)
 
+### Technical Description
+
+Data Model
+
+In the diagram below we can see the schemas used:
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/bd_structure-01.png?alt=media&token=8f32a358-db03-4edc-8254-feb2ebe93104)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
