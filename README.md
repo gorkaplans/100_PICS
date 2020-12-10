@@ -2,7 +2,7 @@
 
 ![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/LOGO.png?alt=media&token=1c67f270-fa3f-4b37-8d63-af9eb53a83c5)
 
-Go to Simpletxt! (https://pics-bd.web.app/)
+Go to 100_PICS! (https://pics-bd.web.app/)
 
 ## WEB REPOSITORY WITH 100 MOST ICONIC CATALAN MOUNTAINS.
 
