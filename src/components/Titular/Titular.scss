@@ -22,4 +22,21 @@
     .text{
         font-size: .9em;
     }
+
+    @media (max-width: 768px) {
+
+        .titular-container{
+            margin-right: 0;
+            margin-left: 0;
+            width: auto;
+    
+            .line{
+                width: auto;
+            }
+        }
+    
+    
+    }
 }
+
+

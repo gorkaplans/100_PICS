@@ -153,10 +153,20 @@
       justify-content: center;
       align-items: center;
 
+      .apartat{
+        height: fit-content;
+        margin-right: 5px;
+        cursor: crosshair;
+    }
+
       .head-left{
         width: 40%;
         margin-bottom: 30px;;
+
+       
       }
+
+
     }
   }
 
