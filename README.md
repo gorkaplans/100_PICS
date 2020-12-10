@@ -1,3 +1,17 @@
+### 100_PICS
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/LOGO.png?alt=media&token=1c67f270-fa3f-4b37-8d63-af9eb53a83c5)
+
+Go to Simpletxt! (https://pics-bd.web.app/)
+
+## WEB REPOSITORY WITH 100 MOST ICONIC CATALAN MOUNTAINS.
+
+It is a web stack that works as a repository of the 100 most iconic mountains in Catalonia. With complex filtering systems according to user criteria, details of each mountain with live weather and user management with comments regarding each summit
+
+### Technologies
+
+![alt text](http://ivandax.com/images/simpletxt/techs.JPG)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

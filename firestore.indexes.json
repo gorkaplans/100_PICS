@@ -1,0 +1,37 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "excursions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "mountainId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "mountains",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "time",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "difficulty",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "altitude",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

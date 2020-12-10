@@ -51,6 +51,7 @@ table {
 /* reset*/
 
 body{
+	box-sizing: border-box;
 	padding-top: 1.5em;
 	padding-right: 4em;
 	padding-left: 4em;
@@ -61,9 +62,9 @@ body{
 }
 
 main{
-	width: 84vw;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	color: var(--second);
 }
 
@@ -75,6 +76,14 @@ main{
     
 		--principal: #{$principal-dark};
 		--second: #{$second-dark};
+
+		.img-background{
+			filter: invert(100%);
+		}
+
+		.img-background2{
+			filter: invert(100%);
+		}
 	
 }
 

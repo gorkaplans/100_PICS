@@ -69,7 +69,7 @@ const Login = ({ redirect = true }) => {
           <label className="regular">Mail</label>
         </div>
         <div className="user-box">
-          <input type="text" value={password} onChange={({ target: { value } }) => setPassword(value)} password required />
+          <input type="password" value={password} onChange={({ target: { value } }) => setPassword(value)} password required />
           <label className="regular">Password</label>
         </div>
         <div className="buttons-form">
