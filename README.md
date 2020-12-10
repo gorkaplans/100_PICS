@@ -18,7 +18,38 @@ Data Model
 
 In the diagram below we can see the schemas used:
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/bd_structure-01.png?alt=media&token=8f32a358-db03-4edc-8254-feb2ebe93104)
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/bd_structure_V2.png?alt=media&token=a67d9b34-58be-450c-aa56-7fdf7bbb5b40)
+
+## DESIGN (screenshots)
+
+Home:
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/HOME.png?alt=media&token=df9906ce-4ce1-4d8d-98a6-5eb1b7febe01)
+
+list:
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/LIST.png?alt=media&token=dd96cc36-0274-4a33-a7c4-3651462fe0ce)
+
+Detail:
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/DETAIL.png?alt=media&token=b0b6ee6d-b791-4328-9f34-3aa6910595d6)
+
+DarkMode:
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/NIGHT.png?alt=media&token=e0687362-dcc1-464b-9433-3abb964f22c3)
+
+# Third party API integration
+
+
+Open Weather Map. ==> https://openweathermap.org/
+
+## How to call the APIs
+```
+Use the following sample curls to hit the API:
+
+api.openweathermap.org/data/2.5/weather?q={CITY}&appid={APIKEY}&{LANG}
+```
+
 
 
 # Getting Started with Create React App
