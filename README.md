@@ -10,7 +10,7 @@ It is a web stack that works as a repository of the 100 most iconic mountains in
 
 ### Technologies
 
-![alt text](http://ivandax.com/images/simpletxt/techs.JPG)
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/TECHNOLOGIES-01.png?alt=media&token=94e70e19-e30b-468b-910c-5f9e13f39d15)
 
 ### Technical Description
 
@@ -18,7 +18,7 @@ Data Model
 
 In the diagram below we can see the schemas used:
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/bd_structure_V2.png?alt=media&token=a67d9b34-58be-450c-aa56-7fdf7bbb5b40)
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/bd_structure_V3.png?alt=media&token=d77e5a2e-1bbb-4a30-a953-f0f909ff2468)
 
 ## DESIGN (screenshots)
 
