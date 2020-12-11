@@ -107,7 +107,7 @@ return (
                 : (
                 <>
                 <h2 className="bold pregunta-segona"> Ja has fet aquest cim?</h2>
-                <p className="light tagline">Explicans la teva experiencia</p>
+                <p className="light tagline">Explicans la teva experiència</p>
                 <Button onClick={handeleSingUp} >SingUp</Button>
                 <Modal open={loginOpen} onClose={() => setLoginOpen(false)}>
                     <Login redirect= {false}></Login>

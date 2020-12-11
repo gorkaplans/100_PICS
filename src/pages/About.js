@@ -25,6 +25,9 @@ const About = () => {
         <Titutlar2left title="Respecte" img={deco_one}>
         En cinc llices de camp. De la Comtessa lo qual. Fama e contínua bona memòria los hòmens virtuosos e. Humanes Mereixedors són d'honor glòria e de fama e. Al gentilhom o generós qui vol rebre l'orde de. Part serà del principi de cavalleria; la segona
         </Titutlar2left>
+        <Titutlar2right title="Repoblem" img={deco_two}>
+        En cinc llices de camp. De la Comtessa lo qual. Fama e contínua bona memòria los hòmens virtuosos e. Humanes Mereixedors són d'honor glòria e de fama e. Al gentilhom o generós qui vol rebre l'orde de. Part serà del principi de cavalleria; la segona
+        </Titutlar2right>
       </div>
     </MainLayout>
    

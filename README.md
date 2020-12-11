@@ -22,6 +22,14 @@ In the diagram below we can see the schemas used:
 
 ## DESIGN (screenshots)
 
+Colors:
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/colors.png?alt=media&token=913b027d-4f4e-471e-962a-380422ff8f34)
+
+Font:
+
+![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/tipo.png?alt=media&token=0dee9022-875b-42e1-9b87-dd066aee4e7f)
+
 Home:
 
 ![alt text](https://firebasestorage.googleapis.com/v0/b/pics-bd.appspot.com/o/HOME.png?alt=media&token=df9906ce-4ce1-4d8d-98a6-5eb1b7febe01)
