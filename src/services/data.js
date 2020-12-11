@@ -170,13 +170,11 @@ export async function listMountainsByFilter(collection, formData, userLocation) 
 
     ///filtra con los checks
     const dataFilter = data.filter(d => checksTrue.every(ct => d.checks.includes(ct)));
-    console.log("listMountainsByFilter -> dataFilter", dataFilter)
 
     
     ///filtra la distancia
     const dataFilterdistance = dataFilter.filter(m => getDistanceBetweenUserCoordsAndMountainCoors(m.coords.w_,m.coords.T_,userLocation[0],userLocation[1]) <= Number(distance))
     
-    console.log("listMountainsByFilter -> dataFilterdistance", dataFilterdistance)
     return dataFilterdistance;
 
   } catch (error) {
