@@ -29,7 +29,6 @@ const Profile = () => {
 
 
     useEffect(() => {
-      console.log("holaaaa");
       listUserExcursions(userId).then(rs => setExcursions(rs))
       
     },[userId])
