@@ -26,10 +26,9 @@ export async function getWeatherByCityName(city){
             return sunriseTime 
         }
       }
-      
 
-
-    const weatherStatus = {
+    
+const weatherStatus = {
         description : apiWeather.weather[0].description,
         icon : apiWeather.weather[0].icon,
         temp : (apiWeather.main.temp - 273).toFixed(1),
